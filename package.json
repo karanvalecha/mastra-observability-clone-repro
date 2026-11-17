@@ -1,0 +1,20 @@
+{
+  "name": "mastra-observability-clone-repro",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Standalone reproduction of redundant span metadata cloning in Mastra observability.",
+  "type": "module",
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "scripts": {
+    "repro": "node clones-min.mjs off && node clones-min.mjs never && node clones-min.mjs always",
+    "callers": "node --import ./clone-callers.mjs clones-min.mjs never"
+  },
+  "dependencies": {
+    "@mastra/core": "1.83.0",
+    "@mastra/observability": "1.24.0",
+    "ai": "6.0.319",
+    "zod": "3.25.76"
+  }
+}
